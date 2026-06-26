@@ -252,7 +252,7 @@
   <p class="cover-eyebrow">01 July 2026 · 1 Year</p>
   <h1 class="cover-title">Shree ka Quiz</h1>
   <p class="cover-sub">How well do you know us?</p>
-  <p class="cover-desc">10 questions. Sirf sach. Dekho kitna yaad hai tumhe hamara — aur kitna Sarthak tumhare dil mein hai 🤍</p>
+  <p class="cover-desc">10 questions.</p>
   <button class="btn-primary" onclick="startQuiz()">Shuru Karo ✦</button>
 </div>
 
@@ -276,80 +276,80 @@
   <p class="result-score" id="resultScore"></p>
   <p class="result-label">out of 10</p>
   <p class="result-msg" id="resultMsg"></p>
-  <p class="result-sign">— Sarthak 🤍</p>
+  <p class="result-sign">— Sarthak </p>
 </div>
 
 <script>
 const questions = [
   {
     q: "Kahan mile the hum pehli baar?",
-    options: ["Tinder pe", "Ek random Instagram group chat mein", "Twitter pe", "Common friend ke through"],
+    options: ["Tinder pe", "random gc mein", "Twitter pe", "Common friend ke through"],
     correct: 1,
-    right: "Haan! Ek random group chat — jahan life partner milne ke 0% chances hote hain 😭🤍",
+    right: "Haan! Ek random gc 😭🤍",
     wrong: "Ek random Instagram group chat mein — fate ne kuch aur socha tha 🤍"
   },
   {
     q: "Sarthak tumhe sabse pyaara naam kya bulata hai?",
-    options: ["Jaan", "Meri Gulabjamun 😭", "Baby", "Shona"],
+    options: ["Jaan", "Meri Gulabjamun ", "Baby", "Shona"],
     correct: 1,
-    right: "GULABJAMUN 😭 Tum jaanti thi na — tumhara hi toh naam hai ye 🤍",
-    wrong: "Meri Gulabjamun! Sirf tumhara hi toh naam hai ye 😭🤍"
+    right: "GULABJAMUN Tum jaanti thi na ",
+    wrong: "Meri Gulabjamun! tumhara hi toh naam hai ye "
   },
   {
-    q: "2 August 2025 ko exactly kitne baje tumne 'I love you too' kaha tha?",
+    q: "2 August 2025 ko exactly kitne baje tumne 'I too love you' kaha tha?",
     options: ["11:45 PM", "00:13", "01:30 AM", "00:30"],
     correct: 1,
-    right: "00:13 🥹 Sarthak ko ye time zindagi bhar yaad rahega.",
-    wrong: "00:13 — Sarthak ko ye waqt aaj bhi exactly yaad hai 🥹"
+    right: "00:13 🥹 me ye time zindagi bhar yaad rahega.",
+    wrong: "00:13 — meko ye waqt aaj bhi exactly yaad hai 🥹"
   },
   {
-    q: "Tumhari sabse favourite cheez kaun hai? 😏",
-    options: ["Chole Bhature", "Sarthak 😭", "Sleep", "Instagram"],
+    q: "Tumhari sabse favourite cheez kaun si hai? 😏",
+    options: ["Chole Bhature", "me", "Sleep", "Instagram"],
     correct: 1,
-    right: "Obviously Sarthak 😭🤍 Sahi jawab!",
-    wrong: "SARTHAK 😭🤍 — ye toh tumhe pata hona chahiye tha!"
+    right: "Obviously me, Sahi jawab!",
+    wrong: "SARTHAK — ye toh tumhe pata hona chahiye tha!"
   },
   {
-    q: "December mein Sarthak raat ko bahar kyun jaata tha?",
-    options: ["Walk pe jaana tha", "Dahi lene ke bahane tumse baat karne", "Kaam tha", "Friends ke saath milne"],
+    q: "December mein me raat ko bahar kyun jaata tha?",
+    options: ["Walk pe jaana tha", "Dahi lene ke bahane tumse baat karne", "dahi lene", "Friends ke saath milne"],
     correct: 1,
-    right: "Itni thand mein bhi — sirf teri awaaz ke liye 😭🤍",
-    wrong: "Dahi ke bahane — sirf tumhari awaaz sunne ke liye. Itni thand mein bhi 😭🤍"
+    right: "— sirf teri awaaz ke liye ",
+    wrong: "Dahi ke bahane — sirf tumhari awaaz sunne ke liye. 🤍"
   },
   {
-    q: "28 July 2025 ka din Sarthak ke liye itna khaas kyun tha?",
-    options: ["Uska birthday tha", "Tum breakup ke baad wapas aayi thi", "Pehli baar baat hui thi", "Pehli video call thi"],
+    q: "28 July 2025 ka din mere ke liye itna khaas kyun tha?",
+    options: ["mera birthday tha", "Tum breakup ke baad wapas aayi thi", "Pehli baar baat hui thi", "Pehli video call thi"],
     correct: 1,
     right: "Tum wapas aayi thi — aur usdin ki khushi ka koi jawab nahi 🥹🤍",
-    wrong: "Tum wapas aayi thi us din — aur Sarthak ko nahi lagta tha ki tum aogi 🥹"
+    wrong: "Tum wapas aayi thi us din — aur meko nahi lagta tha ki tum aogi 🥹"
   },
   {
-    q: "Tumhara aur Sarthak ka ek saath gaaya hua song kaun sa hai?",
+    q: "Tumhara aur mera ek saath gaaya hua song kaun sa hai?",
     options: ["Tum Hi Ho", "Dekha Hazaro Dafa", "Tera Ban Jaunga", "Raabta"],
     correct: 1,
-    right: "Dekha Hazaro Dafa 🎵 — teri awaaz, uski awaaz, ek saath. Vo memory ab is song mein hai 🤍",
+    right: "Dekha Hazaro Dafa 🎵 — teri awaaz, meri awaaz, ek saath. Vo memory ab is song mein hai 🤍",
     wrong: "Dekha Hazaro Dafa — call pe saath gaaya tha tumne. Vo memory ab us song mein hai 🎵🤍"
   },
   {
-    q: "Sarthak ne pehli baar kisi ke liye kaunsa song gaaya tha — aur vo 'koi' kaun thi?",
-    options: ["Tum Hi Ho — kisi aur ke liye", "Dooron Dooron — Shree ke liye 🤍", "Kaun Tujhe — Shree ke liye", "Pehle kabhi gaaya nahi"],
+    q: "Mene pehli baar kisi ke liye kaunsa song gaaya tha — aur vo 'koi' kaun thi?",
+    options: ["Tum Hi Ho — kisi aur ke liye", "Dooron Dooron — Shree ke liye ", "Kaun Tujhe — Shree ke liye", "Pehle kabhi gaaya nahi"],
     correct: 1,
     right: "Dooron Dooron — pehli baar, sirf tumhare liye 😭🤍",
     wrong: "Dooron Dooron Unplugged — pehli baar kisi ke liye gaaya, aur vo tum thi 😭🤍"
   },
   {
-    q: "Sarthak tumhe 'Shree' kyun bulata hai?",
-    options: ["Ek random nickname hai", "Kyunki tum 'Mere Ghar Ki Lakshmi' ho 🤍", "Tumne khud kaha tha", "Bahut log bulate hain isliye"],
+    q: "Me tumhe 'Shree' kyun bulata hai?",
+    options: ["Ek random nickname hai", "Kyunki tum 'Mere Ghar Ki Lakshmi' ho ", "Tumne khud kaha tha", "Bahut log bulate hain isliye"],
     correct: 1,
-    right: "Mere Ghar Ki Lakshmi 🥹 Sirf Sarthak ne tumhe ye naam diya hai — apne dil se 🤍",
-    wrong: "Kyunki tum uke liye 'Mere Ghar Ki Lakshmi' ho — ye naam sirf usne diya hai, apne dil se 🥹🤍"
+    right: "Mere Ghar Ki Lakshmi 🥹 Sirf hmare ghr ki",
+    wrong: "Kyunki tum mere liye 'Mere Ghar Ki Lakshmi' ho — 🥹🤍"
   },
   {
-    q: "April 2026 ke baad Sarthak itna khush kyun tha?",
-    options: ["Koi achhi news aayi thi", "Usne feel kiya ki tum finally usse truly dekh rahi ho", "Exams khatam hue the", "Tumse pehli baar baat hui thi"],
+    q: "April 2026 ke baad me itna khush kyun tha?",
+    options: ["Koi achhi news aayi thi", "maine feel kiya ki tum finally usse truly dekh rahi ho", "Exams khatam hue the", "Tumse pehli baar baat hui thi"],
     correct: 1,
-    right: "Haan 🥹 Usne feel kiya ki tum uske efforts, uska pyaar — sab dekh rahi ho. Vo khushi alag hi thi 🤍",
-    wrong: "April mein usne feel kiya ki tum finally usse truly dekh rahi ho — uske efforts, uski feelings, sab kuch 🥹🤍"
+    right: "Haan 🥹 maine feel kiya ki tum mere efforts, mera pyaar — sab dekh rahi ho. Vo khushi alag hi thi 🤍",
+    wrong: "April mein mene feel kiya ki tum finally mujhe truly dekh rahi ho — mere efforts, meri feelings, sab kuch 🥹🤍"
   }
 ];
 
@@ -425,7 +425,7 @@ function showResult() {
     msg = `${score}/10 — almost perfect. Jo chhoot gaya vo dates thi, par jo nahi chhuta vo pyaar tha. Aur wo sab kuch hai. Happy Anniversary 🤍`;
   } else if (score >= 5) {
     title = "Shree... 😄";
-    msg = `${score}/10 — theek hai, dates bhool gayi thi par dil sahi jagah hai. Sarthak tujhse bahut pyaar karta hai — anniversary mubarak ho 🤍`;
+    msg = `${score}/10 — theek hai, dates bhool gayi thi par dil sahi jagah hai. me tujhse bahut pyaar karta hu — anniversary mubarak ho 🤍`;
   } else {
     title = "Aye Shona 😭";
     msg = `${score}/10 — par koi baat nahi. Score se pyaar nahi napa jaata. Aur tumhara pyaar toh 10/10 hai hamesha 🤍 Happy Anniversary!`;
