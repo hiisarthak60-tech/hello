@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shree — In Words</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0f0c0a;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .poster {
+    width: 100%;
+    max-width: 600px;
+    background: linear-gradient(160deg, #1a1208 0%, #0f0c0a 40%, #120d0a 100%);
+    border: 1px solid rgba(184,154,106,0.15);
+    padding: 56px 48px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* corner ornaments */
+  .poster::before, .poster::after {
+    content: '';
+    position: absolute;
+    width: 60px; height: 60px;
+    border-color: rgba(184,154,106,0.25);
+    border-style: solid;
+  }
+  .poster::before { top: 16px; left: 16px; border-width: 1px 0 0 1px; }
+  .poster::after  { bottom: 16px; right: 16px; border-width: 0 1px 1px 0; }
+
+  /* glow */
+  .glow {
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,116,138,0.08) 0%, transparent 70%);
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  .top-label {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(184,154,106,0.5);
+    margin-bottom: 28px;
+  }
+
+  .main-name {
+    font-family: 'Pinyon Script', cursive;
+    font-size: clamp(72px, 18vw, 108px);
+    color: #fff;
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .sub-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: rgba(184,154,106,0.6);
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .divider-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .divider-line::before, .divider-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(184,154,106,0.3), transparent);
+  }
+  .divider-line span {
+    font-size: 14px;
+    color: rgba(196,116,138,0.6);
+  }
+
+  /* words cloud */
+  .words-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    justify-content: center;
+    margin-bottom: 44px;
+  }
+
+  .word {
+    font-family: 'Cormorant Garamond', serif;
+    border: 1px solid;
+    padding: 6px 14px;
+    border-radius: 1px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  .word:hover {
+    transform: translateY(-2px);
+  }
+
+  .word.rose {
+    color: #e8a0b0;
+    border-color: rgba(232,160,176,0.25);
+    background: rgba(232,160,176,0.04);
+    font-size: 18px;
+    font-style: italic;
+  }
+  .word.gold {
+    color: #c9a96e;
+    border-color: rgba(201,169,110,0.25);
+    background: rgba(201,169,110,0.04);
+    font-size: 15px;
+  }
+  .word.white {
+    color: rgba(255,255,255,0.7);
+    border-color: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.02);
+    font-size: 13px;
+    font-style: italic;
+  }
+  .word.big {
+    font-size: 22px;
+    padding: 8px 20px;
+  }
+
+  .quote-block {
+    border-left: 2px solid rgba(196,116,138,0.4);
+    padding: 16px 20px;
+    margin-bottom: 40px;
+  }
+
+  .quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 3vw, 20px);
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+
+  .quote-attr {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(184,154,106,0.5);
+  }
+
+  .facts-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 44px;
+  }
+
+  .fact {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 16px;
+    text-align: center;
+  }
+
+  .fact-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: #e8a0b0;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .fact-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.4;
+  }
+
+  .bottom-note {
+    text-align: center;
+  }
+
+  .bottom-script {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 38px;
+    color: rgba(196,116,138,0.8);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .bottom-small {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
+
+  @media (max-width: 480px) {
+    .poster { padding: 40px 24px 48px; }
+    .facts-row { grid-template-columns: 1fr 1fr; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="glow"></div>
+
+  <p class="top-label">Saanvi Mathur · As seen by Sarthak Singh</p>
+
+  <h1 class="main-name">Shree</h1>
+  <p class="sub-name">Mere Ghar Ki Lakshmi</p>
+
+  <div class="divider-line"><span>✦</span></div>
+
+  <div class="words-grid">
+    <span class="word rose big">Bahut Pyaari ho</span>
+    <span class="word gold">Bahut Sundar ho</span>
+    <span class="word white">pagal ho</span>
+    <span class="word rose">Cute ho </span>
+    <span class="word gold big">Awaaz best h</span>
+    <span class="word white">Bahut pyaar krti ho</span>
+    <span class="word rose">Gusse wali ho</span>
+    <span class="word gold">Shy ho jaati ho</span>
+    <span class="word white"> rone lagti ho</span>
+    <span class="word rose big">Bahut sochti ho</span>
+    <span class="word gold">Aalsi bhi ho</span>
+    <span class="word white">Merko hmesha sb batati ho</span>
+    <span class="word rose">kbhi jhuth nhi bolti ho</span>
+    <span class="word gold">Advice bhi deti ho</span>
+    <span class="word white">Meri care krti ho</span>
+    <span class="word rose big">Meri har baat maanti ho</span>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"Jis tarah hasti ho, jis tarike se gussa hoti ho, jaise text karti ho — sab kuch. Har ek cheez se mujhe pyaar hai."</p>
+    <p class="quote-attr">— Sarthak, always</p>
+  </div>
+
+  <div class="facts-row">
+    <div class="fact">
+      <span class="fact-value">365</span>
+      <span class="fact-label">days of choosing each other</span>
+    </div>
+    <div class="fact">
+      <span class="fact-value">00:13</span>
+      <span class="fact-label">the time you said "I too love you"</span>
+    </div>
+    <div class="fact">
+      <span class="fact-value">∞</span>
+      <span class="fact-label">dahi k bahane tumhari awaz sunna</span>
+    </div>
+    <div class="fact">
+      <span class="fact-value">1</span>
+      <span class="fact-label">random gc that changed everything</span>
+    </div>
+  </div>
+
+  <div class="bottom-note">
+    <span class="bottom-script">Happy Anniversary, Shree 🤍</span>
+    <p class="bottom-small">01 July 2025 — 01 July 2026</p>
+  </div>
+</div>
+</body>
+</html>
